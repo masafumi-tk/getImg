@@ -15,13 +15,18 @@ require 'FileUtils'
       config.access_token = twitter_config["twitterconfig"]["access_token"]
       config.access_token_secret = twitter_config["twitterconfig"]["access_token_secret"]
     end
+    count = 0
     client.favorites("pieel18",{count:200 ,page:5}).each do |tweet|
       #puts tweet.full_text
       tweet.media.each do |media|
         #puts media.media_url
         save_image(media.media_url,tweet[:user][:screen_name])
-      end
+	count = count + 1
+      end     
     end
+    client.update(count.to_s + "枚のHな画像を保存しました")
+    puts count
+
   end
 
   def save_image(url,accountname)
