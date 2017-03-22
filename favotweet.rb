@@ -40,4 +40,3 @@ require 'FileUtils'
   end
 
  get_tweet_img
-
