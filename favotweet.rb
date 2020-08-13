@@ -24,7 +24,7 @@ require 'FileUtils'
 	count = count + 1
       end     
     end
-    client.update(count.to_s + "枚のHな画像を保存しました")
+    client.update(count.to_s + "枚の画像を保存しました")
     puts count
 
   end
